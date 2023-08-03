@@ -1,11 +1,13 @@
 import React from "react";
-
+import { BrowserRouter, Route } from "react-router-dom";
 import "./App.css";
 
 const App = () => {
   return (
     <>
-      <div>hola</div>
+      <BrowserRouter>
+        <Route path="/" exact={true} />
+      </BrowserRouter>
     </>
   );
 };
