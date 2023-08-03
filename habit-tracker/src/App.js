@@ -1,12 +1,17 @@
 import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Welcome from "components/Welcome/Welcome";
+import MyHabits from "components/MyHabits/MyHabits";
 import "./App.css";
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Route path="/" exact={true} />
+        <Routes>
+          <Route path="/" Component={Welcome} exact={true} />
+          <Route path="/habits" Component={MyHabits} exact={true} />
+        </Routes>
       </BrowserRouter>
     </>
   );
