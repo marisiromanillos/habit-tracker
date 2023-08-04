@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import MyHabitsDesktop from "./MyHabitsDesktop/MyHabitsDesktop";
 
 // Defines Desktop and Mobile Containers
 const DesktopContainer = styled.div`
@@ -17,7 +18,9 @@ const MobileContainer = styled.div`
 const MyHabits = () => {
   return (
     <>
-      <DesktopContainer>{/* <MyHabitsDesktop /> */}</DesktopContainer>
+      <DesktopContainer>
+        <MyHabitsDesktop />
+      </DesktopContainer>
       <MobileContainer>Mobile</MobileContainer>
     </>
   );
