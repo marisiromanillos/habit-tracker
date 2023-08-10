@@ -8,20 +8,26 @@ const GoalsContainer = styled.div`
 const GoalsHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  padding-right: 45px;
+  align-items: center;
+  padding-right: 40px;
+  margin-bottom: 45px;
 `;
 const TitleSection = styled.div`
   font-weight: 900;
-  color: #fff;
+  color: #7a798e;
   font-size: 20px;
   jutify-content: center;
 `;
 const AddGoalBtn = styled.div`
   font-weight: 900;
-  color: #fff;
-  font-size: 20px;
+  color: #403ded;
+  font-size: 15px;
   display: flex;
+  padding: 10px 30px;
   align-items: center;
+  border-radius: 1.25rem;
+  background: #f6f6fe;
+  border: none;
 `;
 
 const GoalRow = styled.div`
@@ -31,24 +37,32 @@ const GoalRow = styled.div`
   align-items: center;
   padding-right: 45px;
   margin-bottom: 45px;
-  color: #fff;
+  color: #7a798e;
   :last-child {
     margin-bottom: 0;
   }
 `;
-const Name = styled.div`
-  text-transform: uppercase;
+const Name = styled.div``;
+const Action = styled.div`
+  display: flex;
+  align-items: center;
+  img {
+    max-width: 20px;
+    margin-right: 8px;
+    :last-child {
+      margin: 0;
+    }
+  }
 `;
-const Action = styled.div``;
 
 //array of goals
 
 const Goals = () => {
   const allGoals = [
-    { id: 0, name: "lose weight" },
-    { id: 1, name: "code more" },
-    { id: 2, name: "eat better" },
-    { id: 3, name: "sleep 8 hours" },
+    { id: 0, name: "Lift Heavier 💪🏾" },
+    { id: 1, name: "Code More 👩🏾‍💻" },
+    { id: 2, name: "Eat Better 🥗" },
+    { id: 3, name: "Sleep 8 Hours 😴" },
   ];
 
   return (
@@ -59,9 +73,12 @@ const Goals = () => {
           <AddGoalBtn>Add Goal</AddGoalBtn>
         </GoalsHeader>
         {allGoals.map((goal, indx) => (
-          <GoalRow>
+          <GoalRow key={goal.id}>
             <Name>{goal.name}</Name>
-            <Action>Edit Delete</Action>
+            <Action>
+              <img src="edit.png" alt="edit-btn" />
+              <img src="delete.png" alt="edit-btn" />
+            </Action>
           </GoalRow>
         ))}
       </GoalsContainer>

@@ -20,14 +20,14 @@ const NavContainer = styled.div`
   grid-area: "nav";
   padding-top: 15px;
   padding-left: 100px;
-  background-color: #1d2145;
+  background-color: #d1d0fb;
 `;
 
 const Title = styled.div`
   font-size: 30px;
   font-weight: 900;
   margin-bottom: 100px;
-  color: #fff;
+  color: #403ded;
 `;
 
 // MainSection
