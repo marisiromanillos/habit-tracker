@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { getGoals } from "./GoalsSlice";
 
 const GoalsContainer = styled.div`
   display: flex;
@@ -64,6 +66,13 @@ const Goals = () => {
     { id: 2, name: "Eat Better 🥗" },
     { id: 3, name: "Sleep 8 Hours 😴" },
   ];
+
+  //instance of dispatch
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getGoals());
+  }, [dispatch]);
 
   return (
     <>
