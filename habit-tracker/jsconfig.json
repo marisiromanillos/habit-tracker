@@ -3,5 +3,5 @@
     "baseUrl": "src",
     "jsx": "react"
   },
-  "include": ["src"]
+  "include": ["src", "backend/routes/userRoutes.js"]
 }

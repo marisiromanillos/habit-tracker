@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import { useDispatch } from "react-redux";
-import { getGoals } from "./GoalsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { getGoals } from "../../Controllers/dataController";
+import { selectGoals } from "features/GoalsSlice";
 
 const GoalsContainer = styled.div`
   display: flex;
@@ -60,20 +61,15 @@ const Action = styled.div`
 //array of goals
 
 const Goals = () => {
-  const allGoals = [
-    { id: 0, name: "Lift Heavier 💪🏾" },
-    { id: 1, name: "Code More 👩🏾‍💻" },
-    { id: 2, name: "Eat Better 🥗" },
-    { id: 3, name: "Sleep 8 Hours 😴" },
-  ];
-
-  //instance of dispatch
-  const dispatch = useDispatch();
+  const goals = useSelector(selectGoals);
 
   useEffect(() => {
-    dispatch(getGoals());
-  }, [dispatch]);
-
+    getGoals();
+  }, []);
+  console.log(goals);
+  if (!goals) {
+    return <p>Loading</p>;
+  }
   return (
     <>
       <GoalsContainer>
@@ -81,7 +77,7 @@ const Goals = () => {
           <TitleSection>Goals</TitleSection>
           <AddGoalBtn>Add Goal</AddGoalBtn>
         </GoalsHeader>
-        {allGoals.map((goal, indx) => (
+        {goals.map((goal, indx) => (
           <GoalRow key={goal.id}>
             <Name>{goal.name}</Name>
             <Action>
